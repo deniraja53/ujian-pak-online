@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://drive.google.com/file/d/1Rr6d67-fp1ZmYteBPKIYJ30-oe7ZQilw" />
+<img width="1200" height="475" alt="GHBanner" src="https://drive.google.com/uc?export=view&id=1Rr6d67-fp1ZmYteBPKIYJ30-oe7ZQilw" />
 </div>
 
 ## Run Locally
