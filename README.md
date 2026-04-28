@@ -1,5 +1,5 @@
 <div align="center">
-<img width="1200" height="1200" alt="GHBanner" src="https://drive.google.com/uc?export=view&id=1Rr6d67-fp1ZmYteBPKIYJ30-oe7ZQilw" />
+<img width="1200" height="1200" alt="GHBanner" src="https://drive.google.com/file/d/1btnu7AL_Kp5iC1CNnsFdj7RrP6SnC5M2" />
 </div>
 
 **Cara Melakukan Clone**
