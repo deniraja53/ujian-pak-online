@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@theme {
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-cyber-blue: #00f0ff;
+  --color-cyber-purple: #9d00ff;
+  --color-cyber-pink: #ff00c8;
+  --color-cyber-yellow: #f0f000;
+  --color-cyber-red: #ff003c;
+  --color-bg-dark: #020205;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-cyber-blue font-orbitron overflow-x-hidden;
+  }
+
+  body::before {
+    content: "";
+    @apply fixed inset-0 pointer-events-none z-[1000] opacity-[0.05];
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+  }
+
+  body::after {
+    content: "";
+    @apply fixed inset-0 pointer-events-none z-[-1] opacity-10;
+  }
+}
+
+@layer components {
+  .cyber-glow-blue {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), 0 0 20px rgba(0, 240, 255, 0.1);
+  }
+  
+  .cyber-glow-purple {
+    box-shadow: 0 0 10px rgba(157, 0, 255, 0.3), 0 0 20px rgba(157, 0, 255, 0.1);
+  }
+  
+  .cyber-glow-pink {
+    box-shadow: 0 0 10px rgba(255, 0, 200, 0.4), 0 0 20px rgba(255, 0, 200, 0.1);
+  }
+
+  .hud-border {
+    @apply border border-cyber-blue/20 bg-black/60 backdrop-blur-md;
+  }
+
+  .corner-accent {
+    @apply absolute w-4 h-4 border-cyber-pink;
+  }
+
+  .corner-tl { @apply top-0 left-0 border-t-2 border-l-2; }
+  .corner-tr { @apply top-0 right-0 border-t-2 border-r-2; }
+  .corner-bl { @apply bottom-0 left-0 border-b-2 border-l-2; }
+  .corner-br { @apply bottom-0 right-0 border-b-2 border-r-2; }
+
+  .text-glitch {
+    position: relative;
+  }
+
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  .text-glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 theme(colors.cyber-blue);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+
+  .text-glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 theme(colors.cyber-pink);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip: rect(20px, 9999px, 10px, 0); }
+  20% { clip: rect(80px, 9999px, 30px, 0); }
+  40% { clip: rect(10px, 9999px, 60px, 0); }
+  60% { clip: rect(50px, 9999px, 20px, 0); }
+  80% { clip: rect(30px, 9999px, 90px, 0); }
+  100% { clip: rect(70px, 9999px, 40px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(30px, 9999px, 50px, 0); }
+  20% { clip: rect(10px, 9999px, 80px, 0); }
+  40% { clip: rect(60px, 9999px, 30px, 0); }
+  60% { clip: rect(20px, 9999px, 70px, 0); }
+  80% { clip: rect(90px, 9999px, 10px, 0); }
+  100% { clip: rect(40px, 9999px, 60px, 0); }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: theme(colors.bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: theme(colors.cyber-blue / 30%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.cyber-blue);
+}
